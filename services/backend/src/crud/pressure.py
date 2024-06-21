@@ -1,16 +1,16 @@
-from src.database.models import PressureData
-from src.schemas.pressure import PressureDataOutSchema
+from src.database.models import DataIot
+from src.schemas.pressure import DataIotOutSchema
 from fastapi import HTTPException
 
 
-async def get_pressure():
-    return await PressureDataOutSchema.from_queryset(PressureData.all())
+async def get_data_iot():
+    return await DataIotOutSchema.from_queryset(DataIot.all())
 
-async def create_pressure_data(pressure) -> PressureDataOutSchema:
+async def create_data_iot(data_iot) -> DataIotOutSchema:
     try:
-        pressure_dict = pressure.dict(exclude_unset=True)
-        pressure_obj = await PressureData.create(**pressure_dict)
-        return await PressureDataOutSchema.from_tortoise_orm(pressure_obj)
+        data_iot_dict = data_iot.dict(exclude_unset=True)
+        data_iot_obj = await DataIot.create(**data_iot_dict)
+        return await DataIotOutSchema.from_tortoise_orm(data_iot_obj)
     except Exception as e:
         error_message = f'An error occurred while creating the message. {e}'
         raise HTTPException(status_code=400, detail=error_message)

@@ -1,14 +1,14 @@
 from fastapi import APIRouter
-from src.schemas.pressure import PressureDataOutSchema, PressureDataInSchema
+from src.schemas.pressure import DataIotOutSchema, DataIotInSchema
 import src.crud.pressure as crud
 from typing import List
 
 router = APIRouter()
 
-@router.get('/data', response_model=List[PressureDataOutSchema])
-async def get_pessure():
-    return await crud.get_pressure()
+@router.get('/data', response_model=List[DataIotOutSchema])
+async def get_data_iot():
+    return await crud.get_data_iot()
 
-@router.post('/create', response_model=PressureDataOutSchema)
-async def create_message(pressure_data: PressureDataInSchema):
-    return await crud.create_pressure_data(pressure_data)
+@router.post('/create', response_model=DataIotOutSchema)
+async def create_data_iot(data_iot: DataIotInSchema):
+    return await crud.create_data_iot(data_iot)
