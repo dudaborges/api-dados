@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from src.schemas.pressure import DataIotOutSchema, DataIotInSchema
-import src.crud.pressure as crud
+from src.schemas.data_iot import DataIotOutSchema, DataIotInSchema
+import src.crud.data_iot as crud
 from typing import List
 
 router = APIRouter()

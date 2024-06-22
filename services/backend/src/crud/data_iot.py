@@ -1,5 +1,5 @@
 from src.database.models import DataIot
-from src.schemas.pressure import DataIotOutSchema
+from src.schemas.data_iot import DataIotOutSchema
 from fastapi import HTTPException
 
 
