@@ -5,4 +5,5 @@ class DataIot(models.Model):
     id = fields.IntField(pk=True)
     pressure = fields.IntField(max_length=255, null=True)
     temperature = fields.IntField(max_length=255, null=True)
+    status = fields.CharField(max_length=255, null=True)
     timestamp = fields.DatetimeField(auto_now=True)
