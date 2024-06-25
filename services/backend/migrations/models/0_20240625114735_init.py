@@ -5,8 +5,8 @@ async def upgrade(db: BaseDBAsyncClient) -> str:
     return """
         CREATE TABLE IF NOT EXISTS "dataiot" (
     "id" SERIAL NOT NULL PRIMARY KEY,
-    "pressure" INT,
-    "temperature" INT,
+    "pressure" INT NOT NULL,
+    "temperature" INT NOT NULL,
     "status" VARCHAR(255),
     "timestamp" TIMESTAMPTZ NOT NULL  DEFAULT CURRENT_TIMESTAMP
 );
